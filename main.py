@@ -41,7 +41,7 @@ def upload_image():
                 
 
                 
-app.run(host='0.0.0.0',debug=True,port=8000)
+app.run()
 
    
 #mp3_file_content_to_recognize = open("resources/python.wav", 'rb').read()
