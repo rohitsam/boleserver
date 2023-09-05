@@ -41,6 +41,9 @@ def upload_image():
                 return y["track"]["title"]
                 break
                 
+@app.route("/_health", methods=["GET"])
+def health():
+    return "OK"
                 
                 
 def test_api():
