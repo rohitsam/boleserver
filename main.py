@@ -28,21 +28,42 @@ def upload_image():
         mp3_file_content_to_recognize = open("resources/python.wav", 'rb').read()
         shazam = Shazam(mp3_file_content_to_recognize)
         recognize_generator = shazam.recognizeSong()
+        count_s =0
         while 1:
             try:
                 x = (next(recognize_generator))
                 print("---------------------")
+                count_s+=1
+                print(x)
+            except StopIteration as e:
+                print(e)
                 y = x[1]
-            except:
-                return (y["track"]["title"])
+                return y["track"]["title"]
                 break
                 
                 
                 
-
+def test_api():
+    count_s =0
+    mp3_file_content_to_recognize = open("resources/python.wav", 'rb').read()
+    shazam = Shazam(mp3_file_content_to_recognize)
+    recognize_generator = shazam.recognizeSong()
+    count_s =0
+    while 1:
+        try:
+        
+            x = (next(recognize_generator))
+            count_s+=1
+            #print(x,count_s)
+        except StopIteration as e:
+            print(e)
+            break;
+        
+       
+        
                 
-app.run()
-
+app.run(host='0.0.0.0',port=8000)
+#test_api()
    
 #mp3_file_content_to_recognize = open("resources/python.wav", 'rb').read()
 #shazam = Shazam(mp3_file_content_to_recognize)
